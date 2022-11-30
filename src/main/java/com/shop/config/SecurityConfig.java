@@ -31,17 +31,17 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")
         ;
 
-//        http.authorizeRequests()
-//                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
-//                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-//                .mvcMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().authenticated()
-//        ;
+        http.authorizeRequests()
+                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+        ;
 
-        http.authorizeRequests().anyRequest().permitAll();
-//        http.exceptionHandling()
-//                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
-//        ;
+
+        http.exceptionHandling()
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+        ;
 
         return http.build();
     }
